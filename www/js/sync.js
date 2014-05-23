@@ -30,16 +30,17 @@ function GetRemoteDirs(DOMelement,response)
 	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 	
 	
-	if (!window.device)
+	if (window.device)				// mobilon fut 
+	{
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) { Keres(fs,RootDirectory)} , function hiba1(e){fail(e);} );
+	}
+	else
 	{
 		navigator.webkitPersistentStorage.requestQuota( 1024*1024, function(grantedBytes) {gotFS(grantedBytes);}, 
 			function hiba2(e){fail(e);}
 		);
 	}
-	else
-	{
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) { Keres(fs,RootDirectory)} , function hiba1(e){fail(e);} );
-	}
+	
 	
 	
 }
