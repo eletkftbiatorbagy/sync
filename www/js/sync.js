@@ -59,12 +59,16 @@ function Keres(fs, konyvtar)
 // 	fs.root.getFile(konyvtar+'/foglalkozasok/BODYPUMP.jpg', {create:true}, function(){console.log('Sikeres fájl létrehozás!');}, function hiba4(e){fail(e);});
 // 	fs.root.getFile(konyvtar+'/foglalkozasok/aikido.jpg', {create:true}, function(){console.log('Sikeres fájl létrehozás!');}, function hiba4(e){fail(e);});
 	
-	navigator.webkitPersistentStorage.queryUsageAndQuota( 
-		function(used, remaining) {
-		  console.log("Used quota: " + used + ", remaining quota: " + remaining);
-		}, function(e) {
-		  console.log('Error', e); 
-		} );
+	if (!window.device)
+	{
+		navigator.webkitPersistentStorage.queryUsageAndQuota( 
+			function(used, remaining) {
+			  console.log("Used quota: " + used + ", remaining quota: " + remaining);
+			}, function(e) {
+			  console.log('Error', e); 
+			} );
+	}		
+		
 	InspectDirectory(fs,konyvtar);
 }
 
