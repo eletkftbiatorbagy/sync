@@ -49,7 +49,7 @@
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     
-    
+    <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.file" version="1.0.1" />
     
     
